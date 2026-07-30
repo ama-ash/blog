@@ -8,14 +8,14 @@ export default function About() {
           😊
         </div>
         <div>
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">小明</h2>
+          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">lzh</h2>
           <p className="text-gray-600 dark:text-gray-400 text-sm">前端学习者 · 博客作者</p>
         </div>
       </div>
 
       <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
         <p>
-          你好！我是小明，一名正在学习前端开发的学生。这个博客是我记录学习过程、分享技术笔记的地方。
+          你好！我是lzh，一名正在学习前端开发的学生。这个博客是我记录学习过程、分享技术笔记的地方。
         </p>
         <p>
           我目前主要在学习 <strong className="text-gray-900 dark:text-white">React</strong>、

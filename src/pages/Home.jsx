@@ -13,7 +13,7 @@ export default function Home() {
           👋
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-          你好，我是<span className="text-violet-600 dark:text-violet-400">小明</span>
+          你好，我是<span className="text-violet-600 dark:text-violet-400">lzh</span>
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-8 leading-relaxed">
           正在学习前端开发的学生，用这个博客记录我的学习旅程和技术笔记。
