@@ -19,7 +19,7 @@ export const posts = [
 ## 下一步
 
 接下来我会继续学习更多 React 的知识，比如 Hooks、状态管理等。敬请期待！`,
-    tags: ["React", "学习", "前端"],
+    tags: ["React", "学习", "前端"]
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ useEffect(() => {
 \`\`\`
 
 掌握这两个 Hook，你就能处理大多数场景了。`,
-    tags: ["React", "Hooks", "教程"],
+    tags: ["React", "Hooks", "教程"]
   },
   {
     id: 3,
@@ -77,6 +77,15 @@ Tailwind 内置响应式前缀，非常方便：
 ## 自定义颜色
 
 在配置文件中可以扩展你的品牌色。`,
-    tags: ["CSS", "Tailwind", "教程"],
+    tags: ["CSS", "Tailwind", "教程"]
   },
+  {
+    id: 4,
+    slug:"learn-powershell",
+    title:"我的PowerShell学习之路",
+    date:"2026-07-28",
+    summary:"记录我第一次学习PowerShell的过程。",
+    content:`## PowerShell是一个功能强大的命令行工具和脚本语言，主要用于系统管理和自动化任务。`,
+    tags:["PowerShell","学习","脚本"],
+  }
 ]
