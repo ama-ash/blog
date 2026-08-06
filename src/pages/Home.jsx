@@ -1,10 +1,35 @@
 import { Link } from "react-router-dom"
 import PostCard from "../components/PostCard"
 import { posts } from "../data/posts"
+import { useState } from "react"
+
+function SearchBar({ value, onChange }) {
+  return (
+    <input
+      type="text"
+      placeholder="搜索文章..."
+      value={value}
+      onChange={event => onChange(event.target.value)}
+      className="w-full rounded-xl border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors hover:border-violet-400 dark:border-gray-700 dark:text-gray-300 "
+     />
+    )
+};
 
 export default function Home() {
-  const latestPosts = posts.slice(0, 2)
+  const [searchTerm, setSearchTerm] = useState("")
 
+  const filteredPosts = posts.filter(post => {
+    const keyword = searchTerm.trim().toLowerCase()
+    return (
+      post.title.toLowerCase().includes(keyword) ||
+      post.content.toLowerCase().includes(keyword)
+    )
+  })
+
+  const displayPosts = searchTerm.trim()
+    ? filteredPosts 
+    : posts.slice(0, 2)
+  
   return (
     <main className="w-full min-w-0 max-w-4xl mx-auto px-6 py-16">
       {/* Hero */}
@@ -34,36 +59,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Search */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          搜索文章
+        </h2>
+        <SearchBar
+          value={searchTerm} 
+          onChange={setSearchTerm} 
+        />
+      </section>
+
       {/* Latest Posts */}
       <section>
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">最新文章</h2>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            {searchTerm.trim() ?"搜索结果" : "最新文章"}
+          </h2>
+
           <Link to="/blog" className="text-sm text-violet-600 dark:text-violet-400 hover:underline">
             查看全部 →
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          {latestPosts.map(post => (
+          {displayPosts.map(post => (
             <PostCard key={post.id} post={post} />
           ))}
         </div>
+        {searchTerm.trim() && filteredPosts.length === 0 && (
+          <p className="py-8 text-gray-600 dark:text-gray-400 text-center">
+            没有找到相关文章。
+          </p>
+        )}
       </section>
     </main>
+  
   )
-const[searchTerm, setSearchTerm] = useState('');
-const filteredPosts = posts.filter(post =>{
-  const keyword =searchTerm.trim().toLowerCase();
-  return post.title.toLowerCase().includes(keyword) || post.content.toLowerCase().includes(keyword);
-});  
-  <><searchBar value={searchTerm} onChange={e => setSearchTerm(e.target.value)} /><PostList posts={filteredPosts} /></>
-function SearchBar({ value, onChange }) {
-  return (
-    <input
-      type="text"
-      placeholder="搜索文章..."
-      value={value}
-      onChange={e => onChange(e.target.value)}
-    />
-  )
-};
 }
