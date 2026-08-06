@@ -8,7 +8,7 @@ export default function Post() {
   if (!post) return <Navigate to="/blog" replace />
 
   return (
-    <main className="max-w-3xl mx-auto px-6 py-16">
+    <main className="w-full min-w-0 max-w-3xl mx-auto px-6 py-16">
       <Link
         to="/blog"
         className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 mb-8 transition-colors"
@@ -24,7 +24,7 @@ export default function Post() {
         ))}
       </div>
 
-      <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+      <h1 className="text-3xl sm:text-4xl break-words font-bold text-gray-900 dark:text-white mb-4">
         {post.title}
       </h1>
       <time className="text-sm text-gray-400">{post.date}</time>

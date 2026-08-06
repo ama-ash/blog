@@ -12,9 +12,10 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<Post />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog/:slug" element={<Post />} />
+
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </div>
