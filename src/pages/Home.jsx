@@ -55,5 +55,15 @@ const filteredPosts = posts.filter(post =>{
   const keyword =searchTerm.trim().toLowerCase();
   return post.title.toLowerCase().includes(keyword) || post.content.toLowerCase().includes(keyword);
 });  
-
+  <><searchBar value={searchTerm} onChange={e => setSearchTerm(e.target.value)} /><PostList posts={filteredPosts} /></>
+function SearchBar({ value, onChange }) {
+  return (
+    <input
+      type="text"
+      placeholder="搜索文章..."
+      value={value}
+      onChange={e => onChange(e.target.value)}
+    />
+  )
+};
 }
