@@ -50,4 +50,10 @@ export default function Home() {
       </section>
     </main>
   )
+const[searchTerm, setSearchTerm] = useState('');
+const filteredPosts = posts.filter(post =>{
+  const keyword =searchTerm.trim().toLowerCase();
+  return post.title.toLowerCase().includes(keyword) || post.content.toLowerCase().includes(keyword);
+});  
+
 }
