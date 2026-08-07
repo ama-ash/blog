@@ -1,6 +1,6 @@
 import { useParams, Link, Navigate } from "react-router-dom"
 import { posts } from "../data/posts"
-
+import ReactMarkdown from "react-markdown";
 export default function Post() {
   const { slug } = useParams()
   const post = posts.find(p => p.slug === slug)
@@ -29,21 +29,8 @@ export default function Post() {
       </h1>
       <time className="text-sm text-gray-400">{post.date}</time>
 
-      <article className="mt-10 prose prose-gray dark:prose-invert max-w-none prose-headings:font-semibold prose-a:text-violet-600">
-        {post.content.split("\n\n").map((block, i) => {
-          if (block.startsWith("## ")) {
-            return <h2 key={i} className="text-2xl font-semibold text-gray-900 dark:text-white mt-8 mb-4">{block.slice(3)}</h2>
-          }
-          if (block.startsWith("```")) {
-            const code = block.replace(/```[\w]*\n?/, "").replace(/```$/, "")
-            return (
-              <pre key={i} className="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 overflow-x-auto text-sm my-4">
-                <code className="text-gray-800 dark:text-gray-200">{code}</code>
-              </pre>
-            )
-          }
-          return <p key={i} className="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">{block}</p>
-        })}
+      <article className="mt-10 max-w-none text-green-700 dark:text-green-300 [&_h2]:mt-8 [&_h2]:mb-4 [&_h2]:text-2xl [&_h2]:font-semibold [&_h2]:text-gray-900 dark:[&_h2]:text-white [&_p]:mb-4 [&_p]:leading-relaxed [&_li]:my-1 [&_a]:text-violet-600 dark:[&_a]:text-violet-400 [&_code]:text-green-800 dark:[&_code]:text-green-100 [&_pre]:text-green-800 dark:[&_pre]:text-green-100">
+        <ReactMarkdown>{post.content}</ReactMarkdown>
       </article>
     </main>
   )

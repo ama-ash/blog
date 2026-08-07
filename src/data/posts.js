@@ -85,7 +85,29 @@ Tailwind 内置响应式前缀，非常方便：
     title:"我的PowerShell学习之路",
     date:"2026-07-28",
     summary:"记录我第一次学习PowerShell的过程。",
-    content:`## PowerShell是一个功能强大的命令行工具和脚本语言，主要用于系统管理和自动化任务。`,
+    content:`PowerShell是一个功能强大的命令行工具和脚本语言，主要用于系统管理和自动化任务。
+
+## 常用命令
+
+- dir、ls：目录内容
+- cd：切换目录
+    - cd ..：返回上一级目录
+- Get-Process：查看正在运行的进程
+- Get-Service：查看系统服务
+- pwd：显示当前工作目录
+
+## 脚本编写
+
+PowerShell脚本文件以.ps1为扩展名，可以使用任何文本编辑器编写。
+
+常用的脚本操作包括：
+
+- 变量定义：\`variableName = "value"\`
+- 条件语句：\`if\`、\`else\`
+- 循环语句：\`for\`、\`foreach\`、\`while\`
+`,
+
     tags:["PowerShell","学习","脚本"],
-  }
+}
+
 ]
