@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Blog from "./pages/Blog"
 import Post from "./pages/Post"
 import About from "./pages/About"
+import NotFound from "./pages/NotFound"
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/blog/:slug" element={<Post />} />
 
         <Route path="/blog" element={<Blog />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>

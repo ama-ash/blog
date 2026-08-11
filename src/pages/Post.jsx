@@ -1,14 +1,27 @@
-import { useParams, Link, Navigate } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { posts } from "../data/posts"
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown from "react-markdown"
 export default function Post() {
   const { slug } = useParams()
   const post = posts.find(p => p.slug === slug)
 
-  if (!post) return <Navigate to="/blog" replace />
+  if (!post) {
+    return (
+      <main className="mx-auto w-full min-w-0 max-w-3xl px-4 py-16 sm:px-6">
+        <h1 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">文章不存在</h1>
+        <p className="mb-8 text-gray-600 dark:text-gray-400">这篇文章可能已被删除，或链接地址有误。</p>
+        <Link
+          to="/blog"
+          className="inline-flex rounded-lg bg-violet-600 px-5 py-3 font-medium text-white transition-colors hover:bg-violet-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600"
+        >
+          返回文章列表
+        </Link>
+      </main>
+    )
+  }
 
   return (
-    <main className="w-full min-w-0 max-w-3xl mx-auto px-6 py-16">
+    <main className="mx-auto w-full min-w-0 max-w-3xl px-4 py-10 sm:px-6 sm:py-16">
       <Link
         to="/blog"
         className="inline-flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 hover:text-violet-600 dark:hover:text-violet-400 mb-8 transition-colors"

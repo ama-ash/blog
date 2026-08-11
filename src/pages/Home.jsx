@@ -7,10 +7,11 @@ function SearchBar({ value, onChange }) {
   return (
     <input
       type="text"
+      aria-label="搜索文章"
       placeholder="搜索文章..."
       value={value}
       onChange={event => onChange(event.target.value)}
-      className="w-full rounded-xl border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors hover:border-violet-400 dark:border-gray-700 dark:text-gray-300 "
+      className="w-full rounded-xl border border-gray-300 px-6 py-3 font-medium text-gray-700 transition-colors hover:border-violet-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-600 dark:border-gray-700 dark:text-gray-300"
      />
     )
 };
@@ -77,7 +78,7 @@ export default function Home() {
             {searchTerm.trim() ?"搜索结果" : "最新文章"}
           </h2>
 
-          <Link to="/blog" className="text-sm text-violet-600 dark:text-violet-400 hover:underline">
+          <Link to="/blog" className="text-sm text-violet-600 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-600 dark:text-violet-400">
             查看全部 →
           </Link>
         </div>
