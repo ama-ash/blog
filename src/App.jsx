@@ -6,6 +6,7 @@ import Blog from "./pages/Blog"
 import Post from "./pages/Post"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
+import BackToTop from "./components/BackToTop"
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <BackToTop />
     </div>
   )
 }
