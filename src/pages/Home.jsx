@@ -31,8 +31,6 @@ export default function Home() {
     ? filteredPosts 
     : posts.slice(0, 2)
   
-
-    
   return (
     <main className="w-full min-w-0 max-w-4xl mx-auto px-6 py-16">
       {/* Hero */}
